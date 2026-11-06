@@ -504,7 +504,7 @@ export function AppProvider({ children }) {
       {children}
       {toast && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 animate-slide-up border border-gray-800">
-          {toast.type === 'info' ? <AlertCircle className="w-5 h-5 text-blue-400" /> : <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
+          {toast.type === 'info' ? <AlertCircle className="w-5 h-5 text-violet-400" /> : <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
           <span className="text-sm font-medium">{toast.message}</span>
         </div>
       )}
@@ -529,7 +529,7 @@ function MainContent() {
   const { activeTab, selectedProduct, setSelectedProduct } = useApp();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-700">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans antialiased selection:bg-violet-100 selection:text-violet-700">
       <AnnouncementBar />
       <Navbar />
       
@@ -558,13 +558,13 @@ function MainContent() {
 // ==========================================
 function AnnouncementBar() {
   return (
-    <div className="bg-gray-900 text-white text-xs py-2 px-4 text-center font-medium tracking-wide flex justify-between items-center px-6">
+    <div className="bg-gradient-to-r from-slate-950 via-violet-950 to-slate-950 text-white text-xs py-2 px-4 text-center font-medium tracking-wide flex justify-between items-center px-6">
       <div className="hidden md:flex items-center gap-2">
-        <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+        <Sparkles className="w-3.5 h-3.5 text-violet-400" />
         <span>Free express delivery on orders over $150</span>
       </div>
       <div className="mx-auto md:mx-0">
-        <span>🔥 Limited Season Deal: Use code <span className="text-blue-300 font-bold">WELCOME10</span> for 10% OFF</span>
+        <span>🔥 Limited Season Deal: Use code <span className="text-amber-300 font-bold">WELCOME10</span> for 10% OFF</span>
       </div>
       <div className="hidden md:flex items-center gap-4 text-gray-400">
         <span>Support: 1-800-LUMEN</span>
@@ -610,7 +610,7 @@ function Navbar() {
             onClick={() => { setActiveTab('home'); setSelectedProduct(null); }}
             className="cursor-pointer flex items-center gap-2"
           >
-            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm font-bold text-xl tracking-tighter">
+            <div className="w-9 h-9 rounded-xl bg-violet-600 flex items-center justify-center text-white shadow-sm font-bold text-xl tracking-tighter">
               L
             </div>
             <span className="font-extrabold text-xl tracking-tight text-gray-900">LUMEN</span>
@@ -626,7 +626,7 @@ function Navbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-violet-500 focus:bg-white transition-all"
               />
               <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
               {searchQuery && (
@@ -653,7 +653,7 @@ function Navbar() {
                       <img src={p.images[0]} alt={p.name} className="w-10 h-10 object-cover rounded-lg" />
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-gray-800 truncate">{p.name}</div>
-                        <div className="text-xs text-gray-400">{p.category} • <span className="font-semibold text-blue-600">${p.price}</span></div>
+                        <div className="text-xs text-gray-400">{p.category} • <span className="font-semibold text-violet-600">${p.price}</span></div>
                       </div>
                     </div>
                   ))}
@@ -668,7 +668,7 @@ function Navbar() {
               onClick={() => { setSelectedCategoryFilter('all'); setActiveTab('shop'); setSelectedProduct(null); }}
               className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all hidden sm:block ${
                 activeTab === 'shop' && selectedCategoryFilter === 'all'
-                  ? 'text-blue-600 bg-blue-50 border border-blue-200' 
+                  ? 'text-violet-600 bg-violet-50 border border-violet-200'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
             >
@@ -678,7 +678,7 @@ function Navbar() {
             {/* Wishlist Icon with animated border glow */}
             <button
               onClick={() => { setActiveTab('account'); setSelectedProduct(null); }}
-              className="relative p-2.5 rounded-xl text-gray-600 hover:bg-gray-100 transition-all border border-gray-100 hover:border-blue-400 shadow-xs"
+              className="relative p-2.5 rounded-xl text-gray-600 hover:bg-gray-100 transition-all border border-gray-100 hover:border-violet-400 shadow-xs"
               title="Wishlist"
             >
               <Heart className="w-5 h-5" />
@@ -692,11 +692,11 @@ function Navbar() {
             {/* Shopping Cart Icon with Snake Border Effect */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2.5 rounded-xl text-gray-800 hover:text-blue-600 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 hover:from-blue-100 hover:to-indigo-100 transition-all flex items-center gap-2 border border-blue-200/80 shadow-xs"
+              className="relative p-2.5 rounded-xl text-gray-800 hover:text-violet-600 bg-gradient-to-r from-violet-50 via-indigo-50 to-violet-50 hover:from-violet-100 hover:to-indigo-100 transition-all flex items-center gap-2 border border-violet-200/80 shadow-xs"
             >
-              <ShoppingBag className="w-5 h-5 text-blue-600" />
+              <ShoppingBag className="w-5 h-5 text-violet-600" />
               {cartCount > 0 && (
-                <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full font-bold shadow-sm animate-pulse">
+                <span className="bg-violet-600 text-white text-xs px-2 py-0.5 rounded-full font-bold shadow-sm animate-pulse">
                   {cartCount}
                 </span>
               )}
@@ -749,8 +749,8 @@ function Navbar() {
                 }}
                 className={`whitespace-nowrap px-3 py-1.5 rounded-xl font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                   isActive 
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                    : 'bg-gray-50 hover:bg-blue-50 text-gray-700 hover:text-blue-600 border border-gray-200/60'
+                    ? 'bg-violet-600 text-white shadow-md shadow-violet-500/20'
+                    : 'bg-gray-50 hover:bg-violet-50 text-gray-700 hover:text-violet-600 border border-gray-200/60'
                 }`}
               >
                 <cat.icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-gray-500'}`} />
@@ -826,13 +826,15 @@ function HomePage() {
     <div className="space-y-16 pb-16">
       
       {/* Auto-Scrolling Single Frame Hero Banner Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white border-b border-gray-100 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-violet-50 via-white to-amber-50/70 border-b border-violet-100 overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-violet-200/50 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-amber-200/40 blur-3xl" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative">
           
           <div className="grid md:grid-cols-2 gap-12 items-center min-h-[380px]">
             {/* Banner Left Content */}
             <div className="space-y-6 z-10 transition-all duration-700 ease-in-out">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wide border border-blue-200">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-bold tracking-wide border border-violet-200">
                 {activeAd.badge}
               </span>
               <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-none">
@@ -847,7 +849,7 @@ function HomePage() {
                     setSelectedCategoryFilter(activeAd.category);
                     setActiveTab('shop');
                   }}
-                  className="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3.5 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-xl shadow-lg shadow-violet-500/20 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   {activeAd.ctaText} <ChevronRight className="w-4 h-4" />
                 </button>
@@ -872,7 +874,7 @@ function HomePage() {
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-white/40">
-                  <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider">Spotlight Item</div>
+                  <div className="text-xs font-semibold text-violet-600 uppercase tracking-wider">Spotlight Item</div>
                   <div className="text-base font-bold text-gray-900">{activeAd.spotlightTitle}</div>
                   <div className="text-sm text-gray-500">{activeAd.spotlightPrice} <span className="line-through text-xs text-gray-400">{activeAd.originalPrice}</span></div>
                 </div>
@@ -887,7 +889,7 @@ function HomePage() {
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
-                  currentSlide === idx ? 'w-8 bg-blue-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                  currentSlide === idx ? 'w-8 bg-violet-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -900,7 +902,7 @@ function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-gray-50 rounded-2xl border border-gray-100">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-white rounded-xl shadow-sm text-blue-600">
+            <div className="p-3 bg-white rounded-xl shadow-sm text-violet-600">
               <Truck className="w-6 h-6" />
             </div>
             <div>
@@ -909,7 +911,7 @@ function HomePage() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-white rounded-xl shadow-sm text-blue-600">
+            <div className="p-3 bg-white rounded-xl shadow-sm text-violet-600">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
@@ -918,7 +920,7 @@ function HomePage() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-white rounded-xl shadow-sm text-blue-600">
+            <div className="p-3 bg-white rounded-xl shadow-sm text-violet-600">
               <RefreshCw className="w-6 h-6" />
             </div>
             <div>
@@ -927,7 +929,7 @@ function HomePage() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-white rounded-xl shadow-sm text-blue-600">
+            <div className="p-3 bg-white rounded-xl shadow-sm text-violet-600">
               <Lock className="w-6 h-6" />
             </div>
             <div>
@@ -947,7 +949,7 @@ function HomePage() {
           </div>
           <button
             onClick={() => { setSelectedCategoryFilter('all'); setActiveTab('shop'); }}
-            className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer"
+            className="text-sm font-semibold text-violet-600 hover:text-violet-700 flex items-center gap-1 cursor-pointer"
           >
             View All <ChevronRight className="w-4 h-4" />
           </button>
@@ -964,7 +966,7 @@ function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl bg-gray-900 text-white overflow-hidden p-8 sm:p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-4 max-w-xl z-10">
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">Exclusive Event</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-violet-400">Exclusive Event</span>
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               Upgrade Your Tech Suite. <br />Up to 30% Off This Week.
             </h3>
@@ -997,7 +999,7 @@ function HomePage() {
           </div>
           <button
             onClick={() => { setSelectedCategoryFilter('all'); setActiveTab('shop'); }}
-            className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer"
+            className="text-sm font-semibold text-violet-600 hover:text-violet-700 flex items-center gap-1 cursor-pointer"
           >
             View All <ChevronRight className="w-4 h-4" />
           </button>
@@ -1029,7 +1031,7 @@ function ProductCard({ product }) {
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
         />
         {product.discount > 0 && (
-          <span className="absolute top-3 left-3 bg-blue-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
+          <span className="absolute top-3 left-3 bg-violet-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
             -{product.discount}%
           </span>
         )}
@@ -1048,8 +1050,8 @@ function ProductCard({ product }) {
 
       <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
         <div className="cursor-pointer" onClick={() => setSelectedProduct(product)}>
-          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider">{product.category}</div>
-          <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 mt-1 hover:text-blue-600 transition-colors">
+          <div className="text-xs font-semibold text-violet-600 uppercase tracking-wider">{product.category}</div>
+          <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 mt-1 hover:text-violet-600 transition-colors">
             {product.name}
           </h3>
           <div className="flex items-center gap-1.5 mt-2">
@@ -1070,7 +1072,7 @@ function ProductCard({ product }) {
           </div>
           <button
             onClick={() => addToCart(product, 1)}
-            className="p-2.5 bg-gray-900 hover:bg-blue-600 text-white rounded-xl transition-colors shadow-sm"
+            className="p-2.5 bg-gray-900 hover:bg-violet-600 text-white rounded-xl transition-colors shadow-sm"
             title="Add to Cart"
           >
             <ShoppingBag className="w-4 h-4" />
@@ -1130,7 +1132,7 @@ function ShopPage() {
               placeholder="Filter by keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-blue-500"
+              className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-violet-500"
             />
             <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
           </div>
@@ -1153,7 +1155,7 @@ function ShopPage() {
         <div className="space-y-6 bg-gray-50/50 p-6 rounded-2xl border border-gray-100 h-fit">
           <div className="flex items-center justify-between border-b border-gray-200 pb-4">
             <div className="font-bold text-gray-900 flex items-center gap-2">
-              <SlidersHorizontal className="w-4 h-4 text-blue-600" /> Filters
+              <SlidersHorizontal className="w-4 h-4 text-violet-600" /> Filters
             </div>
             <button
               onClick={() => {
@@ -1163,7 +1165,7 @@ function ShopPage() {
                 setMinRating(0);
                 setSearchQuery('');
               }}
-              className="text-xs font-semibold text-blue-600 hover:underline cursor-pointer"
+              className="text-xs font-semibold text-violet-600 hover:underline cursor-pointer"
             >
               Reset All
             </button>
@@ -1178,7 +1180,7 @@ function ShopPage() {
                   key={cat.id}
                   onClick={() => setSelectedCategoryFilter(cat.id)}
                   className={`w-full text-left px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center justify-between cursor-pointer ${
-                    selectedCategoryFilter === cat.id ? 'bg-blue-600 text-white font-bold' : 'text-gray-600 hover:bg-gray-100'
+                    selectedCategoryFilter === cat.id ? 'bg-violet-600 text-white font-bold' : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
                   <span>{cat.name}</span>
@@ -1191,7 +1193,7 @@ function ShopPage() {
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-bold text-gray-700 uppercase tracking-wider">
               <span>Max Price</span>
-              <span className="text-blue-600 font-bold">${priceRange}</span>
+              <span className="text-violet-600 font-bold">${priceRange}</span>
             </div>
             <input
               type="range"
@@ -1200,7 +1202,7 @@ function ShopPage() {
               step="50"
               value={priceRange}
               onChange={(e) => setPriceRange(Number(e.target.value))}
-              className="w-full accent-blue-600"
+              className="w-full accent-violet-600"
             />
           </div>
 
@@ -1290,7 +1292,7 @@ function ProductDetailPage({ product, onBack }) {
       {/* Back Button */}
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-violet-600 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Store
       </button>
@@ -1312,7 +1314,7 @@ function ProductDetailPage({ product, onBack }) {
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
                   className={`relative w-20 aspect-square rounded-xl overflow-hidden border-2 transition-all ${
-                    activeImageIndex === idx ? 'border-blue-600 ring-2 ring-blue-100' : 'border-gray-200'
+                    activeImageIndex === idx ? 'border-violet-600 ring-2 ring-violet-100' : 'border-gray-200'
                   }`}
                 >
                   <img src={img} alt="Thumb" className="w-full h-full object-cover" />
@@ -1325,7 +1327,7 @@ function ProductDetailPage({ product, onBack }) {
         {/* Product Details Info */}
         <div className="space-y-6">
           <div>
-            <div className="text-xs font-bold text-blue-600 uppercase tracking-wider">{product.brand} • {product.category}</div>
+            <div className="text-xs font-bold text-violet-600 uppercase tracking-wider">{product.brand} • {product.category}</div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 leading-snug">{product.name}</h1>
             <div className="flex items-center gap-3 mt-3">
               <div className="flex text-amber-400">
@@ -1347,7 +1349,7 @@ function ProductDetailPage({ product, onBack }) {
             {product.originalPrice > product.price && (
               <>
                 <div className="text-lg text-gray-400 line-through">${product.originalPrice}</div>
-                <div className="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">
+                <div className="bg-violet-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">
                   Save ${product.originalPrice - product.price} ({product.discount}%)
                 </div>
               </>
@@ -1366,7 +1368,7 @@ function ProductDetailPage({ product, onBack }) {
                     key={c}
                     onClick={() => setSelectedColor(c)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
-                      selectedColor === c ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-gray-200 hover:bg-gray-50'
+                      selectedColor === c ? 'border-violet-600 bg-violet-50 text-violet-700' : 'border-gray-200 hover:bg-gray-50'
                     }`}
                   >
                     {c}
@@ -1385,7 +1387,7 @@ function ProductDetailPage({ product, onBack }) {
                     key={s}
                     onClick={() => setSelectedSize(s)}
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
-                      selectedSize === s ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-gray-200 hover:bg-gray-50'
+                      selectedSize === s ? 'border-violet-600 bg-violet-50 text-violet-700' : 'border-gray-200 hover:bg-gray-50'
                     }`}
                   >
                     {s}
@@ -1415,7 +1417,7 @@ function ProductDetailPage({ product, onBack }) {
 
             <button
               onClick={() => addToCart(product, quantity, selectedColor, selectedSize)}
-              className="flex-1 py-3.5 bg-gray-900 hover:bg-blue-600 text-white font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
+              className="flex-1 py-3.5 bg-gray-900 hover:bg-violet-600 text-white font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
             >
               <ShoppingBag className="w-4 h-4" /> Add to Cart
             </button>
@@ -1432,7 +1434,7 @@ function ProductDetailPage({ product, onBack }) {
 
           <button
             onClick={handleBuyNow}
-            className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md shadow-blue-500/20"
+            className="w-full py-3.5 bg-violet-600 hover:bg-violet-700 text-white font-bold rounded-xl transition-all shadow-md shadow-violet-500/20"
           >
             Buy Now
           </button>
@@ -1440,7 +1442,7 @@ function ProductDetailPage({ product, onBack }) {
           {/* Shipping Zip Check */}
           <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 space-y-3">
             <label className="text-xs font-bold text-gray-700 flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-blue-600" /> Check Estimated Delivery
+              <MapPin className="w-4 h-4 text-violet-600" /> Check Estimated Delivery
             </label>
             <form onSubmit={checkDelivery} className="flex gap-2">
               <input
@@ -1536,7 +1538,7 @@ function CartDrawer() {
           {/* Header */}
           <div className="p-6 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 text-blue-600" />
+              <ShoppingBag className="w-5 h-5 text-violet-600" />
               <h2 className="text-lg font-extrabold text-gray-900">
                 {checkoutStep === 'cart' && 'Your Cart'}
                 {checkoutStep === 'checkout' && 'Checkout Flow'}
@@ -1630,7 +1632,7 @@ function CartDrawer() {
                         key={m.id}
                         onClick={() => setPaymentMethod(m.id)}
                         className={`p-3 rounded-xl border text-left font-semibold transition-all ${
-                          paymentMethod === m.id ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-gray-200 hover:bg-gray-50 text-gray-700'
+                          paymentMethod === m.id ? 'border-violet-600 bg-violet-50 text-violet-700' : 'border-gray-200 hover:bg-gray-50 text-gray-700'
                         }`}
                       >
                         {m.name}
@@ -1651,7 +1653,7 @@ function CartDrawer() {
                 <p className="text-xs text-gray-500">Order ID: <span className="font-bold text-gray-800">{lastOrder.id}</span></p>
                 <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 text-left text-xs space-y-2">
                   <div className="flex justify-between font-medium"><span>Date:</span> <span>{lastOrder.date}</span></div>
-                  <div className="flex justify-between font-medium"><span>Total Paid:</span> <span className="font-bold text-blue-600">${lastOrder.total}</span></div>
+                  <div className="flex justify-between font-medium"><span>Total Paid:</span> <span className="font-bold text-violet-600">${lastOrder.total}</span></div>
                   <div className="flex justify-between font-medium"><span>Payment Method:</span> <span>{lastOrder.paymentMethod}</span></div>
                 </div>
               </div>
@@ -1679,7 +1681,7 @@ function CartDrawer() {
               <button
                 disabled={cart.length === 0}
                 onClick={() => setCheckoutStep('checkout')}
-                className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white font-bold rounded-xl transition-all shadow-md shadow-blue-500/20"
+                className="w-full py-3.5 bg-violet-600 hover:bg-violet-700 disabled:bg-gray-300 text-white font-bold rounded-xl transition-all shadow-md shadow-violet-500/20"
               >
                 Proceed to Checkout
               </button>
@@ -1766,7 +1768,7 @@ function AuthModal() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="alex@example.com"
-              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-violet-500"
             />
           </div>
           <div>
@@ -1777,13 +1779,13 @@ function AuthModal() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-violet-500"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md shadow-blue-500/20"
+            className="w-full py-3.5 bg-violet-600 hover:bg-violet-700 text-white font-bold rounded-xl transition-all shadow-md shadow-violet-500/20"
           >
             {mode === 'login' ? 'Sign In' : 'Create Account'}
           </button>
@@ -1791,9 +1793,9 @@ function AuthModal() {
 
         <div className="text-center text-xs text-gray-500">
           {mode === 'login' ? (
-            <span>Don't have an account? <button onClick={() => setMode('signup')} className="text-blue-600 font-bold hover:underline">Sign Up</button></span>
+            <span>Don't have an account? <button onClick={() => setMode('signup')} className="text-violet-600 font-bold hover:underline">Sign Up</button></span>
           ) : (
-            <span>Already have an account? <button onClick={() => setMode('login')} className="text-blue-600 font-bold hover:underline">Sign In</button></span>
+            <span>Already have an account? <button onClick={() => setMode('login')} className="text-violet-600 font-bold hover:underline">Sign In</button></span>
           )}
         </div>
       </div>
@@ -1830,7 +1832,7 @@ function AccountPage() {
         {/* Profile Summary Card */}
         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 space-y-4 h-fit">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 bg-blue-600 text-white font-extrabold text-xl rounded-2xl flex items-center justify-center">
+            <div className="w-14 h-14 bg-violet-600 text-white font-extrabold text-xl rounded-2xl flex items-center justify-center">
               {user.name.charAt(0)}
             </div>
             <div>
@@ -1853,7 +1855,7 @@ function AccountPage() {
           {/* Order History Timeline */}
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-              <Package className="w-5 h-5 text-blue-600" /> Order History
+              <Package className="w-5 h-5 text-violet-600" /> Order History
             </h3>
 
             {orders.length === 0 ? (
@@ -1870,7 +1872,7 @@ function AccountPage() {
                         <span className="text-gray-400 ml-2">({ord.date})</span>
                       </div>
                       <span className={`px-2.5 py-0.5 rounded-full font-bold text-[11px] ${
-                        ord.status === 'Delivered' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-blue-50 text-blue-700 border border-blue-200'
+                        ord.status === 'Delivered' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-violet-50 text-violet-700 border border-violet-200'
                       }`}>
                         {ord.status}
                       </span>
@@ -1890,7 +1892,7 @@ function AccountPage() {
 
                     <div className="flex justify-between items-center border-t border-gray-100 pt-3 text-xs">
                       <div className="text-gray-500">Total: <span className="font-extrabold text-gray-900">${ord.total}</span></div>
-                      <button onClick={() => showToast(`Invoice downloaded for ${ord.id}`)} className="text-blue-600 font-bold flex items-center gap-1">
+                      <button onClick={() => showToast(`Invoice downloaded for ${ord.id}`)} className="text-violet-600 font-bold flex items-center gap-1">
                         <Download className="w-3.5 h-3.5" /> Invoice
                       </button>
                     </div>
@@ -1917,9 +1919,9 @@ function AccountPage() {
                     <img src={p.images[0]} alt={p.name} className="w-14 h-14 object-cover rounded-lg" />
                     <div className="flex-1 min-w-0 text-xs">
                       <div className="font-bold text-gray-800 truncate">{p.name}</div>
-                      <div className="text-blue-600 font-extrabold mt-0.5">${p.price}</div>
+                      <div className="text-violet-600 font-extrabold mt-0.5">${p.price}</div>
                     </div>
-                    <button onClick={() => setSelectedProduct(p)} className="p-2 bg-gray-100 hover:bg-blue-50 text-blue-600 rounded-lg">
+                    <button onClick={() => setSelectedProduct(p)} className="p-2 bg-gray-100 hover:bg-violet-50 text-violet-600 rounded-lg">
                       <Eye className="w-4 h-4" />
                     </button>
                   </div>
@@ -1991,7 +1993,7 @@ function AdminPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-1">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-violet-100 text-violet-700 text-xs font-bold mb-1">
             <ShieldCheck className="w-3.5 h-3.5" /> Administrative Suite
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900">Admin Control Panel</h1>
@@ -2027,7 +2029,7 @@ function AdminPage() {
             <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 space-y-2">
               <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Total Orders</div>
               <div className="text-3xl font-extrabold text-gray-900">{orders.length}</div>
-              <div className="text-xs text-blue-600 font-semibold">100% fulfilled rate</div>
+              <div className="text-xs text-violet-600 font-semibold">100% fulfilled rate</div>
             </div>
 
             <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 space-y-2">
@@ -2050,7 +2052,7 @@ function AdminPage() {
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 bg-gray-900 text-white rounded-2xl space-y-3">
-              <GitCommit className="w-6 h-6 text-blue-400" />
+              <GitCommit className="w-6 h-6 text-violet-400" />
               <div className="text-2xl font-extrabold">{gitMetrics.commitsCount} Commits</div>
               <div className="text-xs text-gray-400">Continuous Integration pipeline passing</div>
             </div>
@@ -2068,7 +2070,7 @@ function AdminPage() {
 
           <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200 space-y-4">
             <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-blue-600" /> System REST API Architecture Endpoints
+              <FileText className="w-5 h-5 text-violet-600" /> System REST API Architecture Endpoints
             </h3>
             <div className="font-mono text-xs bg-gray-900 text-green-400 p-4 rounded-xl space-y-2">
               <div>GET  /api/v1/products?category=:cat&page=1 - Fetch 100+ Catalog Products</div>
@@ -2084,11 +2086,11 @@ function AdminPage() {
       {adminTab === 'database' && (
         <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200 space-y-4">
           <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
-            <Database className="w-5 h-5 text-blue-600" /> PostgreSQL Normalized Database Relational Schema
+            <Database className="w-5 h-5 text-violet-600" /> PostgreSQL Normalized Database Relational Schema
           </h3>
           <div className="grid md:grid-cols-2 gap-4 text-xs font-mono">
             <div className="p-4 bg-white rounded-xl border border-gray-200 space-y-1">
-              <div className="font-bold text-blue-600">TABLE users</div>
+              <div className="font-bold text-violet-600">TABLE users</div>
               <div>id UUID PRIMARY KEY DEFAULT gen_random_uuid()</div>
               <div>email VARCHAR(255) UNIQUE NOT NULL</div>
               <div>password_hash VARCHAR(255) NOT NULL</div>
@@ -2096,7 +2098,7 @@ function AdminPage() {
               <div>created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()</div>
             </div>
             <div className="p-4 bg-white rounded-xl border border-gray-200 space-y-1">
-              <div className="font-bold text-blue-600">TABLE products</div>
+              <div className="font-bold text-violet-600">TABLE products</div>
               <div>id UUID PRIMARY KEY DEFAULT gen_random_uuid()</div>
               <div>name VARCHAR(255) NOT NULL</div>
               <div>category_id INT REFERENCES categories(id)</div>
@@ -2115,7 +2117,7 @@ function AdminPage() {
             <h3 className="text-lg font-bold text-gray-900">Manage Catalog Products ({products.length} Items)</h3>
             <button
               onClick={() => setIsAddProductOpen(true)}
-              className="px-4 py-2 bg-blue-600 text-white font-bold text-xs rounded-xl hover:bg-blue-700 flex items-center gap-2"
+              className="px-4 py-2 bg-violet-600 text-white font-bold text-xs rounded-xl hover:bg-violet-700 flex items-center gap-2"
             >
               <Plus className="w-4 h-4" /> Add Product
             </button>
@@ -2266,7 +2268,7 @@ function AdminPage() {
                 >
                   Cancel
                 </button>
-                <button type="submit" className="flex-1 py-2 bg-blue-600 text-white rounded-xl font-bold">
+                <button type="submit" className="flex-1 py-2 bg-violet-600 text-white rounded-xl font-bold">
                   Save Product
                 </button>
               </div>
@@ -2283,11 +2285,11 @@ function AdminPage() {
 // ==========================================
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white border-t border-gray-800 pt-16 pb-12">
+    <footer className="bg-gradient-to-br from-slate-950 via-violet-950 to-slate-900 text-white border-t border-violet-900 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-xs">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-lg">
+            <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center font-bold text-white text-lg">
               L
             </div>
             <span className="font-extrabold text-xl tracking-tight">LUMEN</span>
@@ -2326,7 +2328,7 @@ function Footer() {
               placeholder="Your email"
               className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-xl text-white focus:outline-none flex-1"
             />
-            <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 font-bold text-white rounded-xl">
+            <button className="px-4 py-2 bg-violet-600 hover:bg-violet-700 font-bold text-white rounded-xl">
               Join
             </button>
           </div>
