@@ -1,1 +1,13 @@
-# This project has no Python dependencies.
+# Lumen is a Node.js/React project; this file is a dependency reference only.
+# These are npm packages, not Python packages. Install them with `npm install`.
+# The authoritative dependency versions are in package.json/package-lock.json.
+
+# Runtime dependencies
+lucide-react@^0.468.0
+react@^18.3.1
+react-dom@^18.3.1
+
+# Development dependency
+vite@^6.0.5
+
+# Runtime requirement: Node.js 18 or newer
